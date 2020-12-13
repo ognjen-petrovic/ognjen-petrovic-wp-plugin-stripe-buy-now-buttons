@@ -36,7 +36,7 @@ function sposnage_stripe_get_env_option($option_name)
 }
 
 function sposnage_add_stripe_settings_page() {
-    add_options_page('Sposnage Stripe page', 'Sposnage Stripe', 'manage_options', 'sposnage-stripe-plugin', 'sposnage_render_stripe_settings_page');
+    add_options_page('Sposnage Stripe page', 'Simple Stripe buttons', 'manage_options', 'sposnage-stripe-plugin', 'sposnage_render_stripe_settings_page');
 }
 add_action('admin_menu', 'sposnage_add_stripe_settings_page');
 
