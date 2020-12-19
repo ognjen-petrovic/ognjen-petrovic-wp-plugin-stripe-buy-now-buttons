@@ -3,12 +3,16 @@
     const successUrl = document.currentScript.dataset.successUrl
     window.addEventListener('load', function(){
         let stripe = Stripe(publishableKey);
-        let buttons = Array.from(document.getElementsByClassName('sposnage-stripe-button'))
+        let buttons = Array.from(document.getElementsByClassName('simple-stripe-button'))
         for (let button of buttons)
         {
-            fetch('/wp-admin/admin-ajax.php?action=sposnage_stripe_proxy&price_id=' + button.dataset.priceId)
+            fetch('/wp-admin/admin-ajax.php?action=simple_stripe_button_proxy&price_id=' + button.dataset.priceId)
             .then(response => response.json())
             .then(json => {
+                if (json.success == false)
+                {
+                  throw Error(json.data)
+                }
                 let numberFormat = new Intl.NumberFormat(navigator.language, {
                     style: "currency",
                     currencyDisplay: "symbol",
@@ -43,6 +47,7 @@
                     });
                 })
             })
+            .catch(err => console.error(err))
         }
     })
 })()

@@ -1,7 +1,12 @@
 <?php
 
-add_shortcode('sposnage-stripe-button', function ($atts = array(), $content = null, $tag = '')
+add_shortcode('simple-stripe-button', function ($atts = array(), $content = null, $tag = '')
 {
+    if (sposnage_do_we_have_all_reqired_settings() == false)
+    {
+        return '<b>Missing parameters. Please check under the "Settings->Simple Stripe buttons" menu.</b>';
+    }
+
     if (!is_array($atts)) return '';
     $atts = array_change_key_case( $atts, CASE_LOWER );
     if  (array_key_exists('price-id', $atts) === false)
@@ -23,7 +28,7 @@ add_shortcode('sposnage-stripe-button', function ($atts = array(), $content = nu
     }
 
     $html .= <<<EOT
-        <button class="sposnage-stripe-button" data-price-id="${atts['price-id']}">Buy now</button>
+        <button class="simple-stripe-button" data-price-id="${atts['price-id']}">Buy now</button>
     EOT;
     return $html;
 });

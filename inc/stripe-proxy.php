@@ -11,12 +11,12 @@ function sposnage_stripe_proxy() {
             'test_publishable_key' =>   $options['test_publishable_key'],
             'price' => $price
         ]);
-    } catch (\Throwable $th) {
-        wp_send_json_error($th);
+    } catch (\Exception $th) {
+        wp_send_json_error($th->getMessage());
     }
 }
 // register the ajax action for authenticated users
-add_action('wp_ajax_sposnage_stripe_proxy', 'sposnage_stripe_proxy');
+add_action('wp_ajax_simple_stripe_button_proxy', 'sposnage_stripe_proxy');
 
 // register the ajax action for unauthenticated users
-add_action('wp_ajax_nopriv_sposnage_stripe_proxy', 'sposnage_stripe_proxy');
+add_action('wp_ajax_nopriv_simple_stripe_button_proxy', 'sposnage_stripe_proxy');

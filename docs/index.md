@@ -20,7 +20,7 @@ It uses a simple shortcode that creates one or more Stripe checkout buttons.
 === Stripe account prerequests === 
 
 * [Enable Stripe Checkoout and client-only integration](https://stripe.com/docs/payments/checkout/client#enable-checkout)
-* [Create products and prices] (https://stripe.com/docs/payments/checkout/client#create-products-and-prices)
+* [Create products and prices](https://stripe.com/docs/payments/checkout/client#create-products-and-prices)
 
 == Configuration ==
 After the plugin is installed and activated, you need to configure settings. Settings are located under "Settings->Simple Stripe buttons"
