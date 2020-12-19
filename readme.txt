@@ -13,7 +13,7 @@ An easy to accept payements using Stripe-hosted payment page that lets you colle
 
 == Description ==
 
-This plugin allows you to Stripe payments on your WordPress pages.
+This plugin allows you to make Stripe payments on your WordPress pages.
 
 It uses a simple shortcode that creates one or more Stripe checkout buttons.
 
