@@ -19,6 +19,7 @@ It uses a simple shortcode that creates one or more Stripe checkout buttons.
 ## Configuration
 
 After the plugin is installed and activated, you need to configure settings. Settings are located under "Settings->Simple Stripe buttons"
+![Settings page](assets/settings_page.png "Settings page")
 
 
 ## Usage
