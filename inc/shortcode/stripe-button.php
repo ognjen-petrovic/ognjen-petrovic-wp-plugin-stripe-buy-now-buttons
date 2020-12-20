@@ -22,13 +22,16 @@ add_shortcode('simple-stripe-button', function ($atts = array(), $content = null
         $publishable_key = sposnage_stripe_get_env_option('publishable_key');
         $js_url =  plugins_url( '/script.js', realpath(__DIR__ . '/../../script.js'));
         $success_url = sposnage_stripe_get_env_option('success_url');
+        $nonce = wp_create_nonce('sposnage');
         $html .= '<script src="https://js.stripe.com/v3/"></script>';
-        $html .= "<script src=\"$js_url\" data-publishable-key=\"$publishable_key\" data-success-url=\"$success_url\"></script>";
+        $html .= "<script src=\"$js_url\" data-publishable-key=\"$publishable_key\" data-success-url=\"$success_url\" data-nonce=\"$nonce\"></script>";
         ++$num;
     }
 
+    $text = array_key_exists('text', $atts) ? $atts['text'] : 'Buy now';
+
     $html .= <<<EOT
-        <button class="simple-stripe-button" data-price-id="${atts['price-id']}">Buy now</button>
+        <button class="simple-stripe-button" data-price-id="${atts['price-id']}">$text</button>
     EOT;
     return $html;
 });

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Sposnage - Stripe checkout button
+ * Plugin Name: Simple Stripe button
  * Description: The easiest way to add Stripe payment button.
  * Version: 1.0.0
  */

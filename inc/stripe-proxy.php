@@ -1,6 +1,7 @@
 <?php
 
 function sposnage_stripe_proxy() {
+    check_ajax_referer('sposnage');
     $options = get_option('sposnage_stripe_options');
     require_once(__DIR__ . '/stripe-php-7.67.0/init.php');
     \Stripe\Stripe::setApiKey(sposnage_stripe_get_env_option('secret_key'));

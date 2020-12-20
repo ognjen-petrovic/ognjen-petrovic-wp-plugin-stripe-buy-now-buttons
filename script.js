@@ -1,13 +1,19 @@
 (function(){
     const publishableKey = document.currentScript.dataset.publishableKey
     const successUrl = document.currentScript.dataset.successUrl
+    const nonce = document.currentScript.dataset.nonce
     window.addEventListener('load', function(){
         let stripe = Stripe(publishableKey);
         let buttons = Array.from(document.getElementsByClassName('simple-stripe-button'))
         for (let button of buttons)
         {
-            fetch('/wp-admin/admin-ajax.php?action=simple_stripe_button_proxy&price_id=' + button.dataset.priceId)
-            .then(response => response.json())
+            fetch('/wp-admin/admin-ajax.php?action=simple_stripe_button_proxy&_wpnonce=' + nonce + '&price_id=' + button.dataset.priceId)
+            .then(response => {
+              if(response.ok == false)
+                throw new Error(response.statusText)
+              else
+                return response.json()
+            })
             .then(json => {
                 if (json.success == false)
                 {
