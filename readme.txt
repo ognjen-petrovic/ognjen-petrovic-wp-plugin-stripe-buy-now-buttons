@@ -1,7 +1,7 @@
 === Simple Stripe checkout buttons ===
 
 Contributors: ognjenpetrovic
-Donate link: 
+Plugin URI: https://ognjen-petrovic.github.io/wp-simple-stripe-button/
 Tags: Stripe, checkout, buy now
 Requires at least: 5.1
 Tested up to: 5.2
