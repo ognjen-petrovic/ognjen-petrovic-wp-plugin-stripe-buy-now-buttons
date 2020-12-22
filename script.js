@@ -1,8 +1,8 @@
 (function(){
-    const publishableKey = document.currentScript.dataset.publishableKey
-    const successUrl = document.currentScript.dataset.successUrl
-    const nonce = document.currentScript.dataset.nonce
     window.addEventListener('load', function(){
+        const publishableKey = SIMPLE_STRIPE_BUTTON.publishableKey
+        const successUrl = SIMPLE_STRIPE_BUTTON.successUrl
+        const nonce = SIMPLE_STRIPE_BUTTON.nonce
         let stripe = Stripe(publishableKey);
         let buttons = Array.from(document.getElementsByClassName('simple-stripe-button'))
         for (let button of buttons)
